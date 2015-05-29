@@ -37,6 +37,10 @@ def camposition():
                       'degree': degree})
     return r.text
 
+@app.route(''/camerastream/')
+def camerastream():
+	return render_template("camerastream.html")
+
 
 @app.route('/camstream/')
 def camstream():
@@ -52,6 +56,7 @@ def camstream():
     ws = urllib.urlopen(url)
 
     def stream():
+
         while(True):
             res = ""
 
@@ -85,6 +90,6 @@ def about():
     return render_template("about.html")
 
 
-@app.route('/camerastream/')
-def camera_stream():
-    return render_template("camerastream.html")
+
+
+
