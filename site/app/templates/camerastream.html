@@ -4,18 +4,20 @@
 {% block container %} 
 
     <h1>R3V - Remote 3D Viewer</h1> 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="span8">
+            <div class="col-lg-7">
                 <img src="/camstream/"/>
             </div>
-            <div class="span4">
+            <div class="col-lg-5">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Control
                     </div>
                     <div class="panel-body">
-                        Camera control here.
+                        Camera control here.<br></br>
+			<label for="moveRight">Right Rotation</label>
+			<button id="moveRight">Move Right</button>
                     </div>
                 </div>
             </div>
