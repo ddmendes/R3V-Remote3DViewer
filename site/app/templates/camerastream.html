@@ -15,14 +15,39 @@
                         Control
                     </div>
                     <div class="panel-body">
-                        Camera control here.<br></br>
-			<label for="moveRight">Right Rotation</label>
-			<button id="moveRight">Move Right</button>
+			<div class="row">
+				<div class="col-sm-5"></div>
+				<button id="btn-up" type="button" class="btn btn-default col-sm-2">
+          				<span class="glyphicon glyphicon-arrow-up"></span>
+        			</button>
+				<div class="col-sm-5"></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-2"></div>
+				<button id="btn-left" type="button" class="btn btn-default col-sm-2">
+          				<span class="glyphicon glyphicon-arrow-left"></span>
+        			</button>
+				<div class="col-sm-4"></div>
+				<button id="btn-right" type="button" class="btn btn-default col-sm-2">
+          				<span class="glyphicon glyphicon-arrow-right"></span>
+        			</button>
+				<div class="col-sm-2"></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-5"></div>
+				<button id="btn-down" type="button" class="btn btn-default col-sm-2">
+        	  			<span class="glyphicon glyphicon-arrow-down"></span>
+	        		</button>
+				<div class="col-sm-5"></div>
+			</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+{% endblock %}
+{% block footer_scripts %}
+    <script src="../static/js/camposition.js"></script>
 {% endblock %}
 
