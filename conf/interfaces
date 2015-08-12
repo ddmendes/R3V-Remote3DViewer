@@ -1,0 +1,11 @@
+auto lo
+iface lo inet loopback
+auto eth0
+iface eth0 inet static
+address 10.235.10.44
+netmask 255.255.255.0
+network 10.235.10.0
+gateway 10.235.10.1
+#pre-up ifconfig eth0 hw ether 00:01:02:03:05:14
+dns-nameservers 143.107.225.6 143.107.182.2 8.8.8.8
+# interfaces(5) file used by ifup(8) and ifdown(8)
