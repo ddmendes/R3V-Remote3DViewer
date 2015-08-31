@@ -9,7 +9,7 @@ the camera. The R3V system runs over a Intel Galileo.
 
 ###Features:
 
-- Control a pan/tilt cam with a smartphone and a cardboard.
+- Control a pan/tilt cam with a smartphone and a [cardboard](https://www.google.com/get/cardboard/).
 - Transfomrs the 2D image from the camera to a 3D image on the cardboard.
 - Provide video streaming from camera to a website, hosted in the Galileo.
 
@@ -31,5 +31,5 @@ the camera. The R3V system runs over a Intel Galileo.
 
 Developed by:
 
-- Davi Diório Mendes
-- Henrique Alberto Rusa
+- Davi Diório Mendes    <[ddmendes](https://github.com/ddmendes)>
+- Henrique Alberto Rusa <[dev-har](https://github.com/dev-har)>
