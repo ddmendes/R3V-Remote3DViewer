@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/R3V.iml" filepath="$PROJECT_DIR$/R3V.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/cardboard/cardboard.iml" filepath="$PROJECT_DIR$/cardboard/cardboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libprotobuf-java-2.6-nano/libprotobuf-java-2.6-nano.iml" filepath="$PROJECT_DIR$/libprotobuf-java-2.6-nano/libprotobuf-java-2.6-nano.iml" />
     </modules>
   </component>
 </project>

@@ -1,20 +1,26 @@
-from flask import render_template
+from flask import render_template, Flask
 from app import app
 
 
-@app.route('/')
-@app.route('/index')
+ipcamUser = 'sel630'
+ipcamPasswd = 'sel630'
 
+
+@app.route('/')
+@app.route('/index/')
 def index():
-    # user = {'nickname': 'Miguel'}  # fake user
-    # posts = [  # fake array of posts
-    #     {
-    #         'author': {'nickname': 'John'},
-    #         'body': 'Beautiful day in Portland!'
-    #     },
-    #     {
-    #         'author': {'nickname': 'Susan'},
-    #         'body': 'The Avengers movie was so cool!'
-    #     }
-    # ]
     return render_template("index.html")
+
+
+@app.route('/cam/', methods=['POST'])
+def cam():
+    if not request.json:
+        return "No json received"
+
+    params = request.get_json()
+    action = []
+
+    if 'move' in params:
+        for x in params['move']:
+            if x in ['up', 'down', 'left', 'right', 'stop']:
+                action.append(('cmd', x))

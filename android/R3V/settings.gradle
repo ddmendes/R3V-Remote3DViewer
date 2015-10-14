@@ -1,1 +1,1 @@
-include ':app', ':cardboard'
+include ':app', ':cardboard', ':libprotobuf-java-2.6-nano'
