@@ -3,7 +3,7 @@
 
 The R3V is a project to control a camera with a smartphone and a cardboard. The
 video will be processed to create a 3D image based on the 2D image captured by
-the camera. The R3V system runs over a Intel Galileo.
+the camera. The R3V system runs over an Intel Galileo.
 
 ----
 
