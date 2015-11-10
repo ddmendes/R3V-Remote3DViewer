@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\ddiorio\Documents\AndroidWorkspace\Cardboard Version\app\libs\cardboard.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="7800973ef52ae629978ad974370b6a0b9bc79e25">
+        <dex dex="C:\Users\ddiorio\Documents\AndroidWorkspace\Cardboard Version\app\build\intermediates\pre-dexed\debug\cardboard-64f8fd5e0697daaf7a22c0a0aceb90a02e5e4687.jar" />
+    </item>
+    <item
+        jar="C:\Users\ddiorio\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="C:\Users\ddiorio\Documents\AndroidWorkspace\Cardboard Version\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-08b16bac3d9e73d0f91608fff286b78e145b0b7a.jar" />
+    </item>
+
+</items>
