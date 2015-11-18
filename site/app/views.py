@@ -37,7 +37,7 @@ def camposition():
                       'degree': degree})
     return r.text
 
-@app.route(''/camerastream/')
+@app.route('/camerastream/')
 def camerastream():
 	return render_template("camerastream.html")
 
