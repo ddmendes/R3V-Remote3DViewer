@@ -3,9 +3,24 @@
 
 {% block container %} 
 
-	<h1>R3V - Remote 3D Viewer</h1> 
-	
-	<img src="/camstream/"/>
+    <h1>R3V - Remote 3D Viewer</h1> 
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <img src="/camstream/"/>
+            </div>
+            <div class="span4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Control
+                    </div>
+                    <div class="panel-body">
+                        Camera control here.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
 
