@@ -2,8 +2,6 @@
 from app import app
 import requests
 import urllib
-import pdb
-
 
 ipcamProtocol = 'http://'
 ipcamAddress = '143.107.235.49:8085'
@@ -15,6 +13,10 @@ ipcamResolution = '32'
 ipcamRate = '0'
 ipcamCommands = {'up': 2, 'down': 0, 'left': 6, 'right': 4}
 
+# Actual angular position
+horPosition = 0.0
+vertPosition = 0.0
+
 
 @app.route('/')
 @app.route('/index/')
@@ -24,22 +26,47 @@ def index():
 
 @app.route('/camposition/', methods=['GET', 'POST'])
 def camposition():
-    # pdb.set_trace()
-    cmd = request.args['move']
-    degree = request.args['degree']
+    cmd = int(request.args['move'])
+    degree = float(request.args['degree'])
+    movement = 0.0
 
-    print cmd, degree
+    if cmd in (0, 2):
+        movement = degree - vertPosition
+        vertPosition = degree
+    elif cmd in (4, 6):
+        movement = degree - horPosition
+        horPosition = degree
+
+    movecamera(cmd, movement)
+
+    return 'ACK'
+
+
+@app.route('/camposition/set_zero/')
+def campositionSetzero():
+    horPosition = 0.0
+    vertPosition = 0.0
+    return 'ACK'
+
+
+@app.route('/camposition/cam_step/', methods=['GET', 'POST'])
+def camstep():
+    cmd = int(request.args['move'])
+    movecamera(cmd, 5)
+    return 'ACK'
+
+def movecamera(cmd, degree):
     r = requests.get(ipcamProtocol + ipcamAddress + ipcamWebctl,
                      {'user': ipcamUser,
                       'pwd': ipcamPasswd,
                       'command': cmd,
                       'onestep': 1,
                       'degree': degree})
-    return r.text
+
 
 @app.route('/camerastream/')
 def camerastream():
-	return render_template("camerastream.html")
+    return render_template("camerastream.html")
 
 
 @app.route('/camstream/')
@@ -82,7 +109,9 @@ def camstream():
 
             yield res
 
-    return Response(stream(), mimetype="multipart/x-mixed-replace; boundary=ipcamera")
+    return Response(
+        stream(),
+        mimetype="multipart/x-mixed-replace; boundary=ipcamera")
 
 
 @app.route('/about/')
