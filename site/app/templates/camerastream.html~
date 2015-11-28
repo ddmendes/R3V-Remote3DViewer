@@ -6,10 +6,10 @@
     <h1>R3V - Remote 3D Viewer</h1> 
     <div class="container-fluid">
         <div class="row">
-            <div class=" col-lg-7 col-md-12 col-sm-12 col-xs-12 my_row_margin">
+            <div class="min_cam col-lg-7 col-md-12 col-sm-12 col-xs-12 my_row_margin">
                 <img src="/camstream/"/>
             </div>
-            <div class=" col-lg-5 col-md-8 col-sm-12 col-xs-12">
+            <div class="min_cam col-lg-5 col-md-8 col-sm-12 col-xs-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Control
