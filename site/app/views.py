@@ -1,6 +1,6 @@
 ﻿from flask import render_template, request, Response
+from SharedPreferences import AnglesStorage
 from app import app
-import cookies
 import requests
 import urllib
 import math
@@ -25,27 +25,29 @@ def index():
 
 @app.route('/camposition/', methods=['GET', 'POST'])
 def camposition():
-    yaw = float(request.args['yaw'])
+    angles = AnglesStorage()
+    pospitch = angles.pitch
+    posyaw = angles.yaw
+
     pitch = float(request.args['pitch'])
+    yaw = float(request.args['yaw'])
+
+    if pitch >= 80 or pitch <= -30:
+        return 'Invalid pitch'
 
     if yaw >= 100 or yaw <= -100:
         return 'Invalid yaw'
 
-    if pitch >= 80 or pitch <= -15:
-        return 'Invalid pitch'
+    print 'pitch: ', pospitch, ' yaw: ', posyaw
 
-    posyaw = cookies.getFromSession('yaw', 0.0)
-    pospitch = cookies.getFromSession('pitch', 0.0)
-
-    movementx = int(yaw - posyaw)
     movementy = int(pitch - pospitch)
+    movementx = int(yaw - posyaw)
 
     # -22.5, 22.5, 67.5, 112.5, 157.2
     # -0.392, 0.392, 1.178, 1.963, 2.743
     movement = math.sqrt(movementx ** 2 + movementy ** 2)
     movedir = math.atan2(movementy, movementx)
 
-    print 'r: ', movement, " theta: ", movedir
     if movement > 3:
         if movedir > -0.392 and movedir <= 0.392:
             # move right
@@ -77,16 +79,28 @@ def camposition():
     pitch = movement * math.sin(movedir)
     yaw = movement * math.cos(movedir)
 
-    cookies.setToSession('yaw', posyaw + yaw)
-    cookies.setToSession('pitch', pospitch + pitch)
+    angles.pitch = int(pospitch + pitch)
+    angles.yaw = int(posyaw + yaw)
+    angles.done()
+
+    pospitch = angles.pitch
+    posyaw = angles.yaw
+
+    print 'pitch: ', pospitch, ' yaw: ', posyaw
 
     return 'ACK'
 
 
 @app.route('/camposition/set_zero/')
 def campositionSetzero():
-    cookies.setToSession('yaw', 0.0)
-    cookies.setToSession('pitch', 0.0)
+    angles = AnglesStorage()
+    angles.pitch = 0
+    angles.yaw = 0
+    angles.done()
+    # requests.get(ipcamProtocol + ipcamAddress + ipcamWebctl,
+    #              {'user': ipcamUser,
+    #               'pwd': ipcamPasswd,
+    #               'command': 25})
     return 'ACK'
 
 

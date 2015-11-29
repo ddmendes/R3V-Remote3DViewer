@@ -13,6 +13,7 @@ import android.os.IBinder;
 import android.util.Log;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.client.CookieStore;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.protocol.ClientContext;
@@ -42,7 +43,7 @@ public class CameraService extends Service {
 
     private CameraListener listener;
     private AngleListerner angleListerner;
-    private HttpContext httpContext;
+    private CookieStore cookieStore;
 
     public void setListener(CameraListener listener) {
         this.listener = listener;
@@ -85,12 +86,11 @@ public class CameraService extends Service {
         };
         t.start();
 
-        httpContext = new BasicHttpContext();
-        httpContext.setAttribute(ClientContext.COOKIE_STORE, new BasicCookieStore());
 
-        new AngleListerner.SetZero(httpContext).execute();
 
-        angleListerner = new AngleListerner(httpContext);
+        new AngleListerner.SetZero(this).execute();
+
+        angleListerner = new AngleListerner(cookieStore);
         IntentFilter filter = new IntentFilter(NEW_EULER_ANGLES);
         registerReceiver(angleListerner, filter);
 
@@ -103,6 +103,10 @@ public class CameraService extends Service {
         unregisterReceiver(angleListerner);
         angleListerner = null;
         return super.onUnbind(intent);
+    }
+
+    protected void setCookieStore(CookieStore cStore) {
+        cookieStore = cStore;
     }
 
     public interface CameraListener {
@@ -120,14 +124,16 @@ public class CameraService extends Service {
     protected static class AngleListerner extends BroadcastReceiver {
 
         private static int MOVEMENT_THRESHOLD = 3;
-        private HttpContext httpContext;
+        private static long REQUEST_PERIOD = 200;
+        private CookieStore cookieStore;
         private int lastYaw = 1024;
         private int lastPitch = 1024;
         private int originYaw = 0;
         private int originPitch = 0;
+        private long lastTime = 0;
 
-        public AngleListerner(HttpContext httpCtxt) {
-            httpContext = httpCtxt;
+        public AngleListerner(CookieStore cStore) {
+            cookieStore = cStore;
         }
 
         @Override
@@ -135,6 +141,13 @@ public class CameraService extends Service {
             if(intent.getAction() == NEW_EULER_ANGLES) {
                 Double pitch = 57.29 * intent.getDoubleExtra("pitch", 0.0f);
                 Double yaw = 57.29 * intent.getDoubleExtra("yaw", 0.0f);
+
+                long thisTime = System.currentTimeMillis();
+                if(thisTime - lastTime > REQUEST_PERIOD) {
+                    lastTime = thisTime;
+                } else {
+                    return;
+                }
 
                 if(lastPitch == 1024) {
                     lastPitch = pitch.intValue();
@@ -147,7 +160,7 @@ public class CameraService extends Service {
                     int pitchActuation = pitch.intValue() - originPitch;
                     int yawActuation = yaw.intValue() - originYaw;
 
-                    if(pitchActuation >= 80 || pitchActuation <= -15) {
+                    if(pitchActuation >= 100 || pitchActuation <= -100) {
                         return;
                     }
 
@@ -158,7 +171,7 @@ public class CameraService extends Service {
                     lastPitch = pitch.intValue();
                     lastYaw = yaw.intValue();
 
-                    angleSender = new AngleSender(httpContext);
+                    angleSender = new AngleSender(cookieStore);
                     Log.d("EulerAngles", "pitch: " + pitchActuation + " yaw: " + yawActuation);
                     angleSender.execute(pitchActuation, yawActuation);
                 }
@@ -168,10 +181,10 @@ public class CameraService extends Service {
         AsyncTask<Integer, Void, Void> angleSender;
 
         protected static class AngleSender extends AsyncTask<Integer, Void, Void> {
-            private HttpContext httpContext;
+            private CookieStore cookieStore;
 
-            public AngleSender(HttpContext httpCtxt) {
-                httpContext = httpCtxt;
+            public AngleSender(CookieStore cStore) {
+                cookieStore = cStore;
             }
 
             @Override
@@ -181,6 +194,7 @@ public class CameraService extends Service {
 
                 try {
                     HttpClient client = new DefaultHttpClient();
+                    ((DefaultHttpClient) client).setCookieStore(cookieStore);
                     String url = Uri.parse(uri + camposition).buildUpon()
                             .appendQueryParameter("pitch", Integer.toString(pitch))
                             .appendQueryParameter("yaw", Integer.toString(yaw))
@@ -195,26 +209,33 @@ public class CameraService extends Service {
             }
         }
 
-        protected static class SetZero extends AsyncTask<Void, Void, Void> {
+        protected static class SetZero extends AsyncTask<Void, Void, CookieStore> {
 
-            private HttpContext httpContext;
+            private CameraService parent;
 
-            public SetZero(HttpContext httpCtxt) {
-                httpContext = httpCtxt;
+            public SetZero(CameraService cameraService) {
+                parent = cameraService;
             }
 
             @Override
-            protected Void doInBackground(Void... params) {
+            protected CookieStore doInBackground(Void... params) {
+                CookieStore cookieStore = null;
                 try {
                     HttpClient client = new DefaultHttpClient();
                     String url = Uri.parse(uri + set_zero).toString();
                     HttpGet request = new HttpGet(url);
-                    HttpResponse response = client.execute(request, httpContext);
+                    HttpResponse response = client.execute(request);
+                    cookieStore = ((DefaultHttpClient)client).getCookieStore();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
-                return null;
+                return cookieStore;
+            }
+
+            @Override
+            protected void onPostExecute(CookieStore cookieStore) {
+                parent.setCookieStore(cookieStore);
             }
         }
     }
