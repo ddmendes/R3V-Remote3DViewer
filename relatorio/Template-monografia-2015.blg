@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2015)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Template-monografia-2015.aux
+The style file: is-unsrt.bst
+Database file #1: ./Content/References.bib
+You've used 4 entries,
+            2261 wiz_defined-function locations,
+            537 strings with 4960 characters,
+and the built_in function-call counts, 628 in all, are:
+= -- 33
+> -- 13
+< -- 0
++ -- 7
+- -- 3
+* -- 6
+:= -- 70
+add.period$ -- 8
+call.type$ -- 4
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 4
+duplicate$ -- 40
+empty$ -- 117
+format.name$ -- 3
+if$ -- 157
+int.to.chr$ -- 0
+int.to.str$ -- 4
+missing$ -- 0
+newline$ -- 30
+num.names$ -- 3
+pop$ -- 48
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 16
+stack$ -- 0
+substring$ -- 0
+swap$ -- 4
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 3
+width$ -- 5
+write$ -- 45
