@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.8.3)  29 NOV 2015 19:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.8.3)  29 NOV 2015 19:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -853,9 +853,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [13]
-Underfull \vbox (badness 3895) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -863,9 +860,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [14 <./Resources/galileo.png>]
-LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 80.
-) (./Content/5_Resultados.tex
+Overfull \hbox (3.36761pt too wide) in paragraph at lines 105--110
+[]\T1/ptm/m/n/10.95 Através da URL <\T1/ptm/m/it/10.95 en-de-reço_da_intel_gali
+leo\T1/ptm/m/n/10.95 >/camposition/cam_step/?move=<direção> pro-ve-mos
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -873,17 +872,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [15]
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 153.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[16
-
-]
-Cap\'{\i }tulo 4.
-) (./Content/6_Conclusao.tex
+[16]) (./Content/5_Resultados.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -900,8 +901,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [18
 
 ]
-Cap\'{\i }tulo 5.
-) (./Template-monografia-2015.bbl
+Cap\'{\i }tulo 4.
+) (./Content/6_Conclusao.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -917,7 +918,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [20
 
-]) (./Content/7_Apendices.tex
+]
+Cap\'{\i }tulo 5.
+) (./Template-monografia-2015.bbl
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -933,10 +936,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [22
 
-]
-Ap\^endice A.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 7.
+]) (./Content/7_Apendices.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -950,7 +950,26 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[24]
+[24
+
+]
+Ap\^endice A.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 7.
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[25]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[26]
 Ap\^endice B.
 ) (./Content/8_Anexos.tex
 
@@ -959,7 +978,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25
+[27
 
 ]
 
@@ -968,7 +987,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[26
+[28
 
 ]
 Anexo I.
@@ -978,14 +997,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27]
+[29]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28
+[30
 
 ]
 Anexo II.
@@ -996,13 +1015,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[29] (./Template-monografia-2015.aux) ) 
+[31] (./Template-monografia-2015.aux) ) 
 Here is how much of TeX's memory you used:
- 14310 strings out of 493089
- 232281 string characters out of 6134843
- 316720 words of memory out of 5000000
- 17460 multiletter control sequences out of 15000+600000
- 69223 words of font info for 91 fonts, out of 8000000 for 9000
+ 14312 strings out of 493089
+ 232306 string characters out of 6134843
+ 316731 words of memory out of 5000000
+ 17461 multiletter control sequences out of 15000+600000
+ 69582 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,68p,580b,306s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/font
@@ -1012,10 +1031,10 @@ ier/ucrr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a
 .pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></us
 r/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Template-monografia-2015.pdf (29 pages, 653816 bytes).
+Output written on Template-monografia-2015.pdf (31 pages, 660931 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
- 85 compressed objects within 1 object stream
+ 134 PDF objects out of 1000 (max. 8388607)
+ 90 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
