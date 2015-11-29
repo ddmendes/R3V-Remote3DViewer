@@ -50,29 +50,21 @@ def camposition():
 
     if movement > 3:
         if movedir > -0.392 and movedir <= 0.392:
-            # move right
-            movecamera(6, movement)
+            movecamera(6, movement)                         # move right
         elif movedir > 0.392 and movedir <= 1.178:
-            # move right up
-            movecamera(93, diagonal_correction * movement)
+            movecamera(93, diagonal_correction * movement)  # move right up
         elif movedir > 1.178 and movedir <= 1.963:
-            # move up
-            movecamera(2, movement)
+            movecamera(2, movement)                         # move up
         elif movedir > 1.963 and movedir <= 2.743:
-            # move left up
-            movecamera(92, diagonal_correction * movement)
+            movecamera(92, diagonal_correction * movement)  # move left up
         elif movedir < -0.392 and movedir >= -1.178:
-            # move right down
-            movecamera(91, diagonal_correction * movement)
+            movecamera(91, diagonal_correction * movement)  # move right down
         elif movedir < -1.178 and movedir >= -1.963:
-            # move down
-            movecamera(0, movement)
+            movecamera(0, movement)                         # move down
         elif movedir < -1.963 and movedir >= -2.743:
-            # move left down
-            movecamera(90, diagonal_correction * movement)
+            movecamera(90, diagonal_correction * movement)  # move left down
         elif movedir > 2.743 or movedir < -2.743:
-            # move left
-            movecamera(4, movement)
+            movecamera(4, movement)                         # move left
         else:
             return 'No movement'
 
