@@ -1,26 +1,73 @@
 \chapter{Materiais e Métodos}
 \label{Materiais}
 \hspace{0,5cm}
-Descrição clara dos procedimentos e dos materiais adotados para o desenvolvimento do trabalho (sem resultados) - incluindo sua adequação ao trabalho.
 
-Tem que responder às perguntas:
--está com um tamanho adequado (proporcional) à monografia?
--há informação suficiente e clara sobre os materiais e sobre os métodos  adotados?
+  Neste seção irá se discursar sobre os materiais e métodos utilizados no desenvolvimento do projeto \emph{R3V}. Os materiais englobam todos os dispositivos físicos e produtos lógicos (bibliotecas de código, etc) utilizados no desenvolvimento do projeto proposto. Os métodos apresentam como e por meio de qual técnica alguns processos do sistema foram desenvolvidos, abstraindo o produto e focando na maneira com que foi implementado.
 
-Não há necessidade de reproduzir (copiar) as obras que embasam o trabalho e sim colocar o suficiente para o entendimento do trabalho e citar as referências.
+  % Descrição clara dos procedimentos e dos materiais adotados para o desenvolvimento do trabalho (sem resultados) - incluindo sua adequação ao trabalho.
 
+  % Tem que responder às perguntas:
+  % -está com um tamanho adequado (proporcional) à monografia?
+  % -há informação suficiente e clara sobre os materiais e sobre os métodos  adotados?
+
+  % Não há necessidade de reproduzir (copiar) as obras que embasam o trabalho e sim colocar o suficiente para o entendimento do trabalho e citar as referências.
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 \section{Materiais}
 \hspace{0,5cm}
-Materiais utilizados no projeto.
+  A seguir são apresentados os materiais relevantes para o projeto proposto (\emph{R3V}), sendo eles: placa de desenvolvimento Intel Galileo, \emph{smarthphone Android}, IPCam (câmera controlada por rede) e Flask (servidor python).
 
   \subsection{Intel Galileo} % rebs
+
+    A placa de desenvolvimento Intel\textsuperscript{\textregistered} Galileo (figura \ref{galileo}), projetada e vendida pela Intel\textsuperscript{\textregistered}, foi criada com base no processador Intel\textsuperscript{\textregistered} Quark SoC X1000 de aplicação com o intuito de ser compatível com os \emph{shields} de Arduino.\\
+    O processador provê para o usuário final uma arquitetura de 32 bits e \emph{clock} de 400 MHz, conectores Ethernet 10/100, PCI-Express \emph{mini-card}, USB 2.0, USB cliente (usado para programação) e botões de \emph{reboot} e \emph{reset}.\\
+    Como apresentado anteriormente, a placa possui diversas interfaces de conexão para viabilizar a comunicação com um computador, outro Arduino e até outros microcontroladores.\\
+    A Galileo suporta programação através da IDE do Arduino como também a utilização de um sistema operacional embarcado instalado em seu \emph{hardware}.
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{./Resources/galileo.png}
+    \caption{Imagem da placa de desenvolvimento Galileo - visão frontal (\emph{Galileo Front}), visão de trás (\emph{Galileo Back}) (visto em: http://www.intel.com/content/www/us/en/embedded/products/galileo/galileo-g1-datasheet.html)}
+    \label{galileo}
+   \end{figure}
+
+   A sua aplicação dentro do projeto desenvolvido é prover um \emph{webservice} REST através do \emph{framework} Flask.
+
+    %http://www.intel.com/content/www/us/en/embedded/products/galileo/galileo-g1-datasheet.html
 
   \subsection{Smartphone Android} % davi
 
   \subsection{IPCam} % rebs
+
+    Para o \emph{streaming} de video, uma câmera IP foi utilizada afim de disponibilizar um serviço em rede e desacoplar o dispositivo do servidor (placa de desenvolvimento Intel\textsuperscript{\textregistered} Galileo). Este \emph{hardware} provê, através de um protocolo \emph{http}, um serviço que executa diversas operações através de \emph{scripts} CGI.\\
+    As intertfaces CGI da câmera apresentam três níveis diferenciados de permissão, sendo eles: visitante, operador e administrador. A funcionalidade utilizada pelo projeto somente requisitou acesso de operador (usuário e senha fornecidos pelo professor).\\
+    Além de serviços de video, a câmera em questão possui \emph{scripts} para monitoramento, detecção de movimento, movimentação da mesma e diversos outros.\\
+    O projeto R3V utilizou-se de dois \emph{scripts}, chamados: \emph{decoder\_control.cgi} e \emph{videostream.cgi}.\\
+    O \emph{script videostream.cgi} realiza a captura e envio do video através da rede para o cliente, enquanto que o \emph{decoder\_control.cgi} controla a movimentação da câmera em sua base. Abaixo (tabela \ref{comandos_ipcam}) se destaca os comandos de movimentação que foram utilizados no projeto.
+
+    \begin{table}[ht]
+    \centering
+    \caption{Comandos utilizados no projeto R3V da câmera IPCam FOSCAM}
+    \begin{tabular}{|c|c|}
+    \hline
+    Comando & Descrição\\
+    \hline
+    $0$ & Move a câmera para baixo \\
+    $2$ & Move a câmera para cima \\
+    $4$ & Move a câmera para a esquerda \\
+    $6$ & Move a câmera para a direita \\
+    $25$ & Coloca a câmera no seu centro (implementação própria) \\
+    $90$ & Move a câmera para a diagonal esquerda inferior \\
+    $91$ & Move a câmera para a diagonal direita inferior \\
+    $92$ & Move a câmera para a digonal esquerda superior \\
+    $93$ & Move a câmera para a diagonal direita superior \\
+    \hline
+    \end{tabular}
+    \label{comandos_ipcam}
+    \end{table}
+
+    Para mais informações sobre o funcionamento da câmera utilizada consulte o manual do fabricante: \cite{ipcam}.
 
   \subsection{Flask} %davi
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
