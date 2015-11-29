@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.8.3)  29 NOV 2015 15:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.8.3)  29 NOV 2015 17:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -778,11 +778,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [8]
 Cap\'{\i }tulo 2.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 16.
-LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 16.
-) (./Content/4_MateriaisMetodos.tex
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 20.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -792,16 +789,21 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [9
 
 ]
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <14.4> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 30.
+) (./Content/4_MateriaisMetodos.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10
-
-]
+[10]
 Cap\'{\i }tulo 3.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 19.
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 33.
 ) (./Content/5_Resultados.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -809,7 +811,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11]
+[11
+
+]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -820,8 +824,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 Cap\'{\i }tulo 4.
-LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 10.
 ) (./Content/6_Conclusao.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -937,10 +939,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [25] (./Template-monografia-2015.aux) ) 
 Here is how much of TeX's memory you used:
- 14278 strings out of 493089
- 231852 string characters out of 6134843
+ 14280 strings out of 493089
+ 231882 string characters out of 6134843
  315694 words of memory out of 5000000
- 17436 multiletter control sequences out of 15000+600000
+ 17438 multiletter control sequences out of 15000+600000
  59244 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,68p,580b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -951,7 +953,7 @@ ier/ucrr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a
 .pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></us
 r/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/te
 xlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Template-monografia-2015.pdf (25 pages, 203921 bytes).
+Output written on Template-monografia-2015.pdf (25 pages, 206888 bytes).
 PDF statistics:
  113 PDF objects out of 1000 (max. 8388607)
  77 compressed objects within 1 object stream

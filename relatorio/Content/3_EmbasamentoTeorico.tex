@@ -1,17 +1,55 @@
-\chapter{Embasamento Teórico ou Fundamentação Teórica}
+\chapter{Embasamento Teórico}
 \label{EmbasamentoTeorico}
 \hspace{0,5cm}
 
-Revisão da literatura dos tópicos  que sustentam a ciência e o conhecimento, relativos aos objetivos e aos métodos escolhidos para o desenvolvimento do trabalho.
+  Na fase de projeto do sistema R3V proposto foram elencados conhecimentos e fundamentos necessários para o desenvolvimento do mesmo. Com isso em mente, pode-se discursar melhor sobre os tópicos mais relevantes do sistema, permitindo que o leitor aprofunde-se devidamente para que, ao final, os objetivos do projeto sejam melhor discutidos e compreendidos.\\
+  Neste capítulo pretende-se analisar os conceitos de estereoscopia, sistemas embarcados, sistemas distribuídos e \emph{dead reckoning}.
 
-Itens como Considerações Iniciais e Finais não são obrigatórios, mas completam muito bem qualquer capítulo.
+      % Revisão da literatura dos tópicos  que sustentam a ciência e o conhecimento, relativos aos objetivos e aos métodos escolhidos para o desenvolvimento do trabalho.
+
+      % Itens como Considerações Iniciais e Finais não são obrigatórios, mas completam muito bem qualquer capítulo.
 
 
-  \section{3D Esteroscópico} % rebs
+  \section{Estereoscopia} % rebs
+
+    A simulação de imagens em três dimensões (visão espacial) é associada ao conceito da estereoscopia. Para isso, o cérebro humano necessita adiquirir duas imagens, cada qual com um leve deslocamento lateral (angular), e com estas calcular a profundidade dos objetos.\\
+    Existem também técnicas de percepção do espaço tri-dimensional que avaliam sombras, sobreposição de objetos numa cena e vários outros parâmetros, possibilitando verificar a disposição dos elementos no espaço.\\
+    Entretanto, existe uma diferença fundamental entre percepção e simulação do espaço tri-dimensioanl para o usuário, apresentadas a seguir.
+
+    \begin{itemize}
+      \item \textbf{Percepção Tri-dimensonal:} O usuário consegue perceber a disposição dos elementos numa imagem (profundidade relativa, distância relativa entre objetos) somente a partir da análise de uma imagem que possui indicativos como sombra, iluminação e outros.
+      \item \textbf{Simulação Tri-dimensonal:} O usuário tem a sensação de que os objetos possuem dimensões reais, com tamanho e profundidade bem definidos; a distância entre elementos é percebida, entretanto não mais pela sombra, mas pela própria projeção da simulação em si.
+    \end{itemize}
+
+    Portanto, enquanto o usuário pode perceber a terceira dimensão em valores relativos (objetos mais próximos ou mais afastados, maiores ou menores), a simulação do espaço tri-dimensioanl é realizada pela sobreposição de imagens com mesmo ponto focal mas deslocadas levemente uma da outra, possibilitando a reconstrução, pelo cérebro, da profundidade dos elementos.
 
   \section{Sistemas Embarcados} % davi
 
   \section{Sistemas Distribuídos} % davi
 
   \section{\emph{Dead Reckoning}} % rebs
+
+    A tecnologia provê diversos sistemas de posicionamento por sensores, \emph{beacons} (referências fixas no espaço), equivalência entre mapas e outros. Entretanto, pode-se distinguir duas metodologias utilizadas: posicionamento relativo e absoluto.
+
+    \begin{itemize}
+      \item \textbf{Absoluto:} Se vale de técnicas de sensoreamento com referências fixas, previamente implementadas, o que adiciona um custo muito alto para cosntrução e manutenção destes sistemas espalhados pelo terreno em questão.
+      \item \textbf{Relativo:} Propõe uma formulação mais elegante, se valendo de sensores e parâmetros intrínsecos da implementação. Com isso, pode-se estimar a posição atual do elemento de acordo com movimentações perceptíveis ao sistema.
+    \end{itemize}
+
+    \emph{Dead reckoning} é uma implementação de posicionamento relativo que permite o programador avaliar os diversos sensores para se estimar a localização entre os períodos de tempos avaliados.\\
+    Note que as duas implementações de posicionamento possuem suas vantagens e desvantagens, sendo que uma estimativa de localização (posição relativa) adiciona erros às medidas, enquanto que a outra possui as referências extremamente precisas (posição absoluta).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
