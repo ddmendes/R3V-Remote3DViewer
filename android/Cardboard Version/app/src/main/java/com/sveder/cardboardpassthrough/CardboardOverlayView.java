@@ -16,10 +16,16 @@
 
 package com.sveder.cardboardpassthrough;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.IBinder;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -101,6 +107,11 @@ public class CardboardOverlayView extends LinearLayout {
         mRightView.setColor(color);
     }
 
+    protected void setImage(Bitmap bmp) {
+        mLeftView.imageView.setImageBitmap(bmp);
+        mRightView.imageView.setImageBitmap(bmp);
+    }
+
     /**
      * A simple view group containing some horizontally centered text underneath a horizontally
      * centered image.
@@ -114,9 +125,13 @@ public class CardboardOverlayView extends LinearLayout {
 
         public CardboardOverlayEyeView(Context context, AttributeSet attrs) {
             super(context, attrs);
+//            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+//            params.setMargins(0, 300, 0, 300);
             imageView = new ImageView(context, attrs);
-            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
             imageView.setAdjustViewBounds(true);  // Preserve aspect ratio.
+//             imageView.setLayoutParams(params);
+            imageView.setPadding(0, 220, 0, 0);
             addView(imageView);
 
             textView = new TextView(context, attrs);
@@ -128,7 +143,7 @@ public class CardboardOverlayView extends LinearLayout {
         }
 
         public void setColor(int color) {
-            imageView.setColorFilter(color);
+            //imageView.setColorFilter(color);
             textView.setTextColor(color);
         }
 
@@ -153,7 +168,7 @@ public class CardboardOverlayView extends LinearLayout {
             // The size of the image, given as a fraction of the dimension as a ViewGroup. We multiply
             // both width and heading with this number to compute the image's bounding box. Inside the
             // box, the image is the horizontally and vertically centered.
-            final float imageSize = 0.12f;
+            final float imageSize = 1.0f;
 
             // The fraction of this ViewGroup's height by which we shift the image off the ViewGroup's
             // center. Positive values shift downwards, negative values shift upwards.
