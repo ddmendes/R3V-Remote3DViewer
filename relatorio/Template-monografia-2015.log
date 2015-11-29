@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.8.3)  29 NOV 2015 11:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.8.3)  29 NOV 2015 15:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -666,6 +666,8 @@ e
 (./Content/1_PreTexto.tex
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <20.74> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 12.
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <20.74> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 14.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 21.
  [1
@@ -686,9 +688,9 @@ map/pdftex.map}] [2
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 44.
  [3] [4
 
 ] (./Template-monografia-2015.toc
@@ -726,12 +728,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
-)
-\tf@toc=\write4
-\openout4 = `Template-monografia-2015.toc'.
 
-)
-(./Content/2_Introducao.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -740,18 +737,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [5
 
-]
+])
+\tf@toc=\write4
+\openout4 = `Template-monografia-2015.toc'.
+
+) (./Content/2_Introducao.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6
-
-]
+[6]
 Cap\'{\i }tulo 1.
-<./Resources/logo_eesc_vertical.png, id=23, 504.6855pt x 532.1481pt>
+<./Resources/logo_eesc_vertical.png, id=25, 504.6855pt x 532.1481pt>
 File: ./Resources/logo_eesc_vertical.png Graphic file (type png)
 
 <use ./Resources/logo_eesc_vertical.png>
@@ -768,7 +767,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7 <./Resources/logo_eesc_vertical.png>]) (./Content/3_EmbasamentoTeorico.tex
+[7
+
+ <./Resources/logo_eesc_vertical.png>]) (./Content/3_EmbasamentoTeorico.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -777,6 +778,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [8]
 Cap\'{\i }tulo 2.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 16.
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 16.
 ) (./Content/4_MateriaisMetodos.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -815,6 +820,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 Cap\'{\i }tulo 4.
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <14.4> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 10.
 ) (./Content/6_Conclusao.tex
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -930,22 +937,24 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [25] (./Template-monografia-2015.aux) ) 
 Here is how much of TeX's memory you used:
- 14262 strings out of 493089
- 231663 string characters out of 6134843
- 314694 words of memory out of 5000000
- 17427 multiletter control sequences out of 15000+600000
- 45289 words of font info for 66 fonts, out of 8000000 for 9000
+ 14278 strings out of 493089
+ 231852 string characters out of 6134843
+ 315694 words of memory out of 5000000
+ 17436 multiletter control sequences out of 15000+600000
+ 59244 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,68p,580b,295s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,11n,68p,580b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/font
 s/enc/dvips/base/8r.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/cour
 ier/ucrr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a
-.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on Template-monografia-2015.pdf (25 pages, 184758 bytes).
+.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Template-monografia-2015.pdf (25 pages, 203921 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+ 113 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
