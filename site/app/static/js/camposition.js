@@ -1,4 +1,4 @@
-camposition_url = 'http://143.107.235.44:5000/camposition/'
+camposition_url = 'http://192.168.1.107:5000/camposition/cam_step/' // 'http://143.107.235.44:5000/camposition/cam_step/'
 
 $(document).ready(function() {
     $('#btn-up').click(moveup);
@@ -8,18 +8,18 @@ $(document).ready(function() {
 });
 
 function moveup() {
-    $.get(camposition_url, {'move': 2, 'degree': 5})
+    $.get(camposition_url, {'move': 2})
 }
 
 function moveleft() {
-    $.get(camposition_url, {'move': 6, 'degree': 5})
+    $.get(camposition_url, {'move': 6})
 }
 
 function moveright() {
-    $.get(camposition_url, {'move': 4, 'degree': 5})
+    $.get(camposition_url, {'move': 4})
 }
 
 function movedown() {
-    $.get(camposition_url, {'move': 0, 'degree': 5})
+    $.get(camposition_url, {'move': 0})
 }
 
