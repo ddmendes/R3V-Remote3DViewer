@@ -84,9 +84,10 @@
   \subsection{Flask}
     % http://flask.pocoo.org/
     ``O Flask é um microframework para python, baseado no \emph{Werkzeug},
-    \emph{Jinja2} e boas intenções'' \textbf{referência para página do flask}. Com o
-    \emph{Flask} podemos facilmente criar um \emph{backend} para processar as
-    requisições à Intel Galileo, implementando assim um \emph{WebService} REST.
+    \emph{Jinja2} e boas intenções'' \textbf{referência para página do flask}.
+    Com o \emph{Flask} podemos facilmente criar um \emph{backend} para processar
+    as requisições à Intel Galileo, implementando assim um \emph{WebService}
+    REST.
 
     Para utilizarmos o Flask, atrelamos um método python a uma determinada URL.
     Assim conseguimos recuperar dados transmitidos através da requisição HTTP,
@@ -110,7 +111,7 @@
 
     \begin{table}[h]
       \centering
-      \caption{XABLAU}
+      \caption{Código de direção para requisitar movimentação da câmera.}
       \begin{tabular}{|c|c|}
         \hline  Código  & Direção   \\  \hline
                 0       & abaixo    \\  \hline
@@ -136,9 +137,8 @@
     movimento. No parâmetro $x$ deve-se atribuir qual a posição angular desejada
     em torno do eixo $x$. No parâmetro $y$ deve-se atribuir qual a posição
     angular desejada em torno do eixo $y$. O serviço de movimentação por \emph{
-    dead reckoning} só aceita posições angulares para \emph{pitch} entre 80 e
-    -30 graus e posições angulares para \emph{yaw} entre 100 e
-    -100 graus.
+    dead reckoning} só aceita posições angulares para \emph{pitch} entre 80 e 
+    -30 graus e posições angulares para \emph{yaw} entre 100 e -100 graus.
 
     Desta forma temos a Intel Galileo provendo os servições de \emph{streaming},
     \emph{movimentação} e \emph{dead reckoning} da posição de uma câmera IP.
@@ -173,22 +173,50 @@
     Uma ressalva a se fazer a este método é que o sistema necessita armazenar o valor da última posição para que se possa realizar o cálculo do deslocamento angular da câmera. Com isso, foi possível se rastrear e mapear o campo de visão com o movimento do usuário.
 
   \subsection{Applicação Cliente} %davi
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    A aplicação cliente foi desenvolvida como um aplicativo Android. Para o
+    desenvolvimento de aplicativos Android é feito o uso do Android SDK. Ele
+    provê meios de criar interfaces gráficas, aplicativos com processamento
+    paralelo, comunicação interprocesso, conexão com servidores HTTP, e muitas
+    outras funcionalidades. Neste projeto nos interessa a criação de uma
+    interface gráfica para utilizar o \emph{smartphone} no Google Cardboard, o
+    acesso aos sensores inerciais (acelerômetro, giroscópio e magnetômetro) e a
+    comunicação com servidores HTTP.
 
-    A android SDK provê meios de criar interfaces gráficas, desenvolver
-    aplicativos internacionalizáveis (em diversas línguas), aplicativos com
-    processamento paralelo, comunicação interprocesso, conexão com servidores
-    HTTP, e muitas outras funcionalidades. Neste projeto nos interessa a criação
-    de uma interface gráfica para utilizar o \emph{smartphone} no Google
-    Cardboard, o acesso aos sensores inerciais (acelerômetro, giroscópio e
-    magnetômetro) e a comunicação com servidores HTTP.
-
-    Para a interface gráfico, o necessário é podermos exibir uma imagem em cada
+    Para a interface gráfica, o necessário é podermos exibir uma imagem em cada
     metade da tela, com o celular em orientação paisagem. Ambas as imagens deve
     ser a mesma, de forma a dar o aspecto tridimensional quando no \emph{
-    cardboard}. Para nos beneficiarmos de algumas facilidades da \emph{Cardboard
+    cardboard}. Para nos beneficiarmos de algumas facilidades do \emph{Cardboard
     SDK}, discutidas adiante, foi necessário manter a interface de renderizador
-    gráfico da \emph{cardboard}, mas uma nova interface foi sobreposta sobre a
-    padrão. No código fonte.
+    gráfico do \emph{Cardboard}, mas uma nova interface foi sobreposta sobre a
+    padrão.
 
+    O acesso aos sensores inerciais foi feito indiretamente através do \emph{
+    Cardboard SDK}. Ela abstrai o cálculo dos ângulos de euler do dispositivo
+    como uma requisição da direção de visão do usuário. Desta forma temos os
+    ângulos ao redor dos eixos $x$ e $y$ sem termos que diretamente acessar os
+    sensores inerciais e tratar suas leituras.
 
+    Outro recurso do Android utilizado foi a comunicação com servidores HTTP. A
+    comunicação entre o \emph{smartphone} Android e a Intel Galileo caracteriza
+    o R3V como um sistema distribuído. Diz-se isto pois possuímos dois dispositivos
+    computacionais, conectados pela internet e operando em conjunto através de
+    troca de mensagens. Com informação trocada entre os dispositivos temos o
+    \emph{streaming} de vídeo da Galileo para o \emph{smartphone} e o pedido de
+    movimentação da câmera, do dispositivo móvel para o servidor, requisitando
+    o mesmo posicionamento angular lado no cliente.
+
+    Na recepção do \emph{streaming} de vídeo foi utilizada a classe MjpegInputStream.
+    A classe foi reutilizada do projeto arduino-android-blueprints, de Marco Schwartz,
+    mas a autoria da classe é desconhecida e esta é utilizada em diversos projetos.
+
+    No comando de movimentação da câmera há dois tratamentos para evitar o uso
+    abusivo da rede. Um dos tratamentos é por segmentação de movimento. Só é
+    enviado um comando, do \emph{smartphone} para o servidor, se o movimento
+    tiver pelo menos três graus de variação seja no eixo $x$ ou no eixo $y$.
+    Outro método de redução de uso da rede é nunca enviar um comando com menos
+    de 200 milisegundos de espaçamento do comando anterior. Desta forma reduzimos
+    o uso de dados do dispositivo celular e evitamos de sobrecarregar o servidor
+    com muitas requisições. Outro contato do dispositivo móvel com a Intel Galileo
+    é na inicialização do aplicativo, onde requisita-se que o servidor zere as
+    posições angulares da câmera, a fim de sincronizar o movimento do \emph{
+    smartphone} com a câmera IP.
