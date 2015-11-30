@@ -16,17 +16,10 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.protocol.ClientContext;
-import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.protocol.BasicHttpContext;
-import org.apache.http.protocol.HttpContext;
 
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class CameraService extends Service {
@@ -34,7 +27,7 @@ public class CameraService extends Service {
     private static final int BUFFER_SIZE = 30000;
     public static final String NEW_EULER_ANGLES = "CameraService.NEW_EULER_ANGLES";
     private static String TAG = "CameraService";
-    private static String uri = "http://192.168.1.107:5000"; //"http://143.107.235.44:5000";
+    private static String uri = "http://143.107.235.44:5000";
     private static String camstream = "/camstream/";
     private static String camposition = "/camposition/";
     private static String set_zero = "/camposition/set_zero/";
