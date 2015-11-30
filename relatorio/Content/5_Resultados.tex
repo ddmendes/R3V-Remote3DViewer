@@ -2,11 +2,16 @@
 \label{Resultados}
 \hspace{0,5cm}
 
-Aqui se mostra o que o trabalho permitiu produzir, e às vezes o que pode ser comparado com outros trabalhos - aqui ficam claras se as propostas do trabalho são relevantes ou não, pois devem permitir a discussão do trabalho.
+Primeiramente observou-se que a configuração da Intel Galileo, além de possuir pouca documentação, apresenta alguns erros, dado que o suporte à primeira geração do dispositivo foi descontinuado. Com isso, o \emph{overhead} de trabalho para início do projeto foi afetado, ocasionando um buraco na programação do grupo.
 
-Deve responder: Os resultados estão claros em bom número (nem muito nem pouco) que permitam avaliar realmente a proposta e o que foi produzido.
+No decorrer do desenvolvimento da aplicação o grupo foi impossibilitado de dar continuidade aos trabalhos dado que a imagem do sistema operacional embarcado possuia falhas críticas no OpenCV para a linguagem python (que foi requisitada inicialmente como parte do projeto). Uma solução foi apresentada meses depois com a utilização de uma nova distribuição de sistema operacional, já com as correções necessárias. Uma consequência deste atraso citado é a não utilização do algoritmo de Parallax para estimação de imagens 3D.
+
+O servidor \emph{web} baseado no \emph{framework} Flask trouxe muita facilidade no manuseio das requisições do \emph{backend} criadas para a comunicação dos serviços da câmera IP com a aplicação Android, já que possuia uma arquitetura montada para gerênciar os recursos de rede.
+
+A aplicação Android foi construída por cima de um código de uma aplicação Cardboard. Esta biblioteca apresenta aos usuários diversas facilidades, como a obtenção dos ângulos de Euler de rotação do sensor inercial do \emph{smartphone}, facilitando o trabalho do grupo na utilização das respostas dos sensores.
+A aplicação final apresenta um \emph{streaming} de video de baixa latência com qualidade de imagem em $640x480$ \emph{pixels}, com possível configuração através de comandos próprios da câmera IP.
+
+O mecânismo de \emph{dead reckoning} na movimentaçào da câmera apresenta erros desprezíveis proporcionando uma boa expoeriência ao usuário.
 
 
-  \section{\emph{Streaming} de Imagem}
-  \section{\emph{Dead Reckoning}}
-  \section{\emph{Frontend}}
+

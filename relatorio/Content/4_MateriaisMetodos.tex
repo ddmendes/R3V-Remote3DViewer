@@ -137,7 +137,7 @@
     movimento. No parâmetro $x$ deve-se atribuir qual a posição angular desejada
     em torno do eixo $x$. No parâmetro $y$ deve-se atribuir qual a posição
     angular desejada em torno do eixo $y$. O serviço de movimentação por \emph{
-    dead reckoning} só aceita posições angulares para \emph{pitch} entre 80 e 
+    dead reckoning} só aceita posições angulares para \emph{pitch} entre 80 e
     -30 graus e posições angulares para \emph{yaw} entre 100 e -100 graus.
 
     Desta forma temos a Intel Galileo provendo os servições de \emph{streaming},
@@ -172,7 +172,7 @@
     O resultado de $arctan2(x, y)$ retorna um valor entre $[-\pi, \pi]$. Este valor apresenta o quadrante o qual a visão do usuário está olhando no momento. Portanto, foi possível discretizar o espaço do campo de visão em segmentos, onde o mapeamento da visão possibilita, através dos comandos padrões da câmera IPCam, simular um movimento natural do usuário no dispositivo ligado em rede.\\
     Uma ressalva a se fazer a este método é que o sistema necessita armazenar o valor da última posição para que se possa realizar o cálculo do deslocamento angular da câmera. Com isso, foi possível se rastrear e mapear o campo de visão com o movimento do usuário.
 
-  \subsection{Applicação Cliente} %davi
+  \subsection{Aplicação Cliente} %davi
     A aplicação cliente foi desenvolvida como um aplicativo Android. Para o
     desenvolvimento de aplicativos Android é feito o uso do Android SDK. Ele
     provê meios de criar interfaces gráficas, aplicativos com processamento
