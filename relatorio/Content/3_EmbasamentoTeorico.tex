@@ -83,11 +83,17 @@
     \emph{Dead reckoning} é uma implementação de posicionamento relativo que permite o programador avaliar os diversos sensores para se estimar a localização entre os períodos de tempos avaliados.\\
     Note que as duas implementações de posicionamento possuem suas vantagens e desvantagens, sendo que uma estimativa de localização (posição relativa) adiciona erros às medidas, enquanto que a outra possui as referências extremamente precisas (posição absoluta).
 
+\section{Rotação dos Eixos}
 
+  A decomposição dos movimentos de rotação de um usuário utilizando um óculos de virtualização é realizada com movimentos angulares, descritas pelos valores \emph{pitch}, \emph{yaw} e \emph{roll}. \\
+  A figura \ref{rotacao} apresenta a orientação das rotações descritas anteriormente.
 
-
-
-
+  \begin{figure}[H]
+    \centering
+    \includegraphics[scale=1.1]{./Resources/oculus_head_model}
+    \caption{Representação dos movimentos de visão de um usuário (visto em: https://s3.amazonaws.com/static.oculus.com/website/2013/05/oculus\_head\_model.jpg)}
+    \label{rotacao}
+   \end{figure}
 
 
 

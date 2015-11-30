@@ -10,6 +10,7 @@
 \contentsline {section}{\numberline {2.3}Sistemas Distribu\IeC {\'\i }dos}{10}
 \contentsline {section}{\numberline {2.4}\emph {WebServices REST}}{10}
 \contentsline {section}{\numberline {2.5}\emph {Dead Reckoning}}{11}
+\contentsline {section}{\numberline {2.6}Rota\c c\~ao dos Eixos}{11}
 \contentsline {chapter}{\numberline {3}Materiais e M\'etodos}{13}
 \contentsline {section}{\numberline {3.1}Materiais}{13}
 \contentsline {subsection}{\numberline {3.1.1}Intel Galileo}{13}
@@ -19,7 +20,7 @@
 \contentsline {section}{\numberline {3.2}M\'etodos}{16}
 \contentsline {subsection}{\numberline {3.2.1}MJPEG}{17}
 \contentsline {subsection}{\numberline {3.2.2}\emph {Dead Reckoning}}{17}
-\contentsline {subsection}{\numberline {3.2.3}Applica\c c\~ao Cliente}{17}
+\contentsline {subsection}{\numberline {3.2.3}Applica\c c\~ao Cliente}{18}
 \contentsline {chapter}{\numberline {4}Resultados e Discuss\~oes}{19}
 \contentsline {section}{\numberline {4.1}\emph {Streaming} de Imagem}{19}
 \contentsline {section}{\numberline {4.2}\emph {Dead Reckoning}}{19}
