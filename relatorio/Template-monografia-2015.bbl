@@ -11,24 +11,6 @@
      \showURLtrue
 \fi
 
-\bibitem{referencia1}
-Autor da~referência 1.
-\newblock Título da referência 1, 2007.
-
-\bibitem{referencia2}
-Google.
-\newblock \url{http://www.google.com.br/}, Acesso em: 04 de dezembro de 2014.
-
-\bibitem{referencia3}
-E.L.L. Rodrigues.
-\newblock Dicas, cuidados e orientações para a elaboração de texto para tcc,
-  2015.
-
-\bibitem{enzo}
-Enzo Bertini~Vieira e~Lara Bertini~Vieira.
-\newblock Sistema autônomo de vigilância baseado em dados biológicos com
-  registro de dados na nuvem via smartphone, 2014.
-
 \bibitem{ipcam}
 Shenzhen~Foscam Technology.
 \newblock {\em IP Camera CGI}.
