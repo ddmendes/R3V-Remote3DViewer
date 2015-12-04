@@ -20,9 +20,12 @@
 
   \subsection{Intel Galileo} % rebs
 
-    A placa de desenvolvimento Intel\textsuperscript{\textregistered} Galileo (figura \ref{galileo}), projetada e vendida pela Intel\textsuperscript{\textregistered}, foi criada com base no processador Intel\textsuperscript{\textregistered} Quark SoC X1000 de aplicação com o intuito de ser compatível com os \emph{shields} de Arduino.\\
-    O processador provê para o usuário final uma arquitetura de 32 bits e \emph{clock} de 400 MHz, conectores Ethernet 10/100, PCI-Express \emph{mini-card}, USB 2.0, USB cliente (usado para programação) e botões de \emph{reboot} e \emph{reset}.\\
-    Como apresentado anteriormente, a placa possui diversas interfaces de conexão para viabilizar a comunicação com um computador, outro Arduino e até outros microcontroladores.\\
+    A placa de desenvolvimento Intel\textsuperscript{\textregistered} Galileo (figura \ref{galileo}), projetada e vendida pela Intel\textsuperscript{\textregistered}, foi criada com base no processador Intel\textsuperscript{\textregistered} Quark SoC X1000 de aplicação com o intuito de ser compatível com os \emph{shields} de Arduino.
+
+    O processador provê para o usuário final uma arquitetura de 32 bits e \emph{clock} de 400 MHz, conectores Ethernet 10/100, PCI-Express \emph{mini-card}, USB 2.0, USB cliente (usado para programação) e botões de \emph{reboot} e \emph{reset}.
+
+    Como apresentado anteriormente, a placa possui diversas interfaces de conexão para viabilizar a comunicação com um computador, outro Arduino e até outros microcontroladores.
+
     A Galileo suporta programação através da IDE do Arduino como também a utilização de um sistema operacional embarcado instalado em seu \emph{hardware}.
 
     \begin{figure}[H]
@@ -52,11 +55,15 @@
   \subsection{IPCam} % rebs
 
 
-    Para o \emph{streaming} de video, uma câmera IP foi utilizada afim de disponibilizar um serviço em rede e desacoplar o dispositivo do servidor (placa de desenvolvimento Intel\textsuperscript{\textregistered} Galileo). Este \emph{hardware} provê, através de um protocolo \emph{http}, um serviço que executa diversas operações através de \emph{scripts} CGI.\\
-    As intertfaces CGI da câmera apresentam três níveis diferenciados de permissão, sendo eles: visitante, operador e administrador. A funcionalidade utilizada pelo projeto somente requisitou acesso de operador (usuário e senha fornecidos pelo professor).\\
-    Além de serviços de video, a câmera em questão possui \emph{scripts} para monitoramento, detecção de movimento, movimentação da mesma e diversos outros.\\
-    O projeto R3V utilizou-se de dois \emph{scripts}, chamados: \emph{decoder\_control.cgi} e \emph{videostream.cgi}.\\
-    O \emph{script videostream.cgi} realiza a captura e envio do video através da rede para o cliente, enquanto que o \emph{decoder\_control.cgi} controla a movimentação da câmera em sua base. Abaixo (tabela \ref{comandos_ipcam}) se destaca os comandos de movimentação que foram utilizados no projeto.
+    Para o \emph{streaming} de video, uma câmera IP foi utilizada afim de disponibilizar um serviço em rede e desacoplar o dispositivo do servidor (placa de desenvolvimento Intel\textsuperscript{\textregistered} Galileo). Este \emph{hardware} provê, através de um protocolo \emph{http}, um serviço que executa diversas operações através de \emph{scripts} CGI.
+
+    As intertfaces CGI da câmera apresentam três níveis diferenciados de permissão, sendo eles: visitante, operador e administrador. A funcionalidade utilizada pelo projeto somente requisitou acesso de operador (usuário e senha fornecidos pelo professor).
+
+    Além de serviços de video, a câmera em questão possui \emph{scripts} para monitoramento, detecção de movimento, movimentação da mesma e diversos outros.
+
+    O projeto R3V utilizou-se de dois \emph{scripts}, chamados: \emph{decoder\_control.cgi} e \emph{videostream.cgi}.
+
+    O \emph{script videostream.cgi} realiza a captura e envio do video através da rede para o cliente, enquanto que o \emph{decoder\_control.cgi} controla a movimentação da câmera em sua base. Abaixo (tabela \ref{comandos_ipcam}) \cite{ipcam} se destaca os comandos de movimentação que foram utilizados no projeto.
 
     \begin{table}[ht]
     \centering
@@ -82,12 +89,10 @@
     Para mais informações sobre o funcionamento da câmera utilizada consulte o manual do fabricante: \cite{ipcam}.
 
   \subsection{Flask}
-    % http://flask.pocoo.org/
     ``O Flask é um microframework para python, baseado no \emph{Werkzeug},
-    \emph{Jinja2} e boas intenções'' \textbf{referência para página do flask}.
-    Com o \emph{Flask} podemos facilmente criar um \emph{backend} para processar
-    as requisições à Intel Galileo, implementando assim um \emph{WebService}
-    REST.
+    \emph{Jinja2} e boas intenções''. Com o \emph{Flask} podemos facilmente
+    criar um \emph{backend} para processar as requisições à Intel Galileo,
+    implementando assim um \emph{WebService} REST.
 
     Para utilizarmos o Flask, atrelamos um método python a uma determinada URL.
     Assim conseguimos recuperar dados transmitidos através da requisição HTTP,
@@ -147,15 +152,19 @@
 \section{Métodos} %rebs
 \hspace{0,5cm}
 
-  No desenvolvimento de um projeto várias técnicas são utilizadas para implementar diversos componentes necessários para o correto funcionamento do sistema, tendo em vista eficiência e qualidade no produto final.\\
+  No desenvolvimento de um projeto várias técnicas são utilizadas para implementar diversos componentes necessários para o correto funcionamento do sistema, tendo em vista eficiência e qualidade no produto final.
+
   Nesta seção serão apresentados todos os métodos, implementações e comportamentos dos componentes desenvolvidos para se construir o sistema R3V. Com isso, irá se discursar um pouco sobre \emph{streaming} de video (MJPEG), mapeamento de movimento (\emph{dead reckoning}) e o servidor desenvolvido.
 
   \subsection{MJPEG}
   % Idea: http://blog.miguelgrinberg.com/post/video-streaming-with-flask
   \subsection{\emph{Dead Reckoning}} % rebs
-    Uma das estruturas fundamentais do comportamento geral do sistema R3V se compõe do mapeamento e controle dos movimentos do usuário, afim de proporcionar uma fluidez na movimentação da câmera no lado da IPCam.\\
-    Utilizando os conceitos de \emph{dead reckoning} (posicionamento de acordo com leitura de sensores e estimativa de movimento), uma transformação matemática foi aplicada aos resultados do sensor inercial (acelerômetro) adiquiridos através do aplicativo do \emph{smartphone}, resultando em um discretização do espaço de visão do usuário. Isso se deve ao fato de que a IPCam possui somente movimentos bem definidos e não responde a movimentos fora de seus comandos pré-definidos.\\
-    Através do SDK do \emph{Cardboard} da Google\textsuperscript{\textregistered} foi possível adiquirir os movimentos angulares denominados \emph{pitch} e \emph{yaw}, que correspondem a movimentos em torno de um eixo bem definido (eixo $x$ e $y$ respectivamente).\\
+    Uma das estruturas fundamentais do comportamento geral do sistema R3V se compõe do mapeamento e controle dos movimentos do usuário, afim de proporcionar uma fluidez na movimentação da câmera no lado da IPCam.
+
+    Utilizando os conceitos de \emph{dead reckoning} (posicionamento de acordo com leitura de sensores e estimativa de movimento), uma transformação matemática foi aplicada aos resultados do sensor inercial (acelerômetro) adiquiridos através do aplicativo do \emph{smartphone}, resultando em um discretização do espaço de visão do usuário. Isso se deve ao fato de que a IPCam possui somente movimentos bem definidos e não responde a movimentos fora de seus comandos pré-definidos.
+
+    Através do SDK do \emph{Cardboard} da Google\textsuperscript{\textregistered} foi possível adiquirir os movimentos angulares denominados \emph{pitch} e \emph{yaw}, que correspondem a movimentos em torno de um eixo bem definido (eixo $x$ e $y$ respectivamente).
+
     A transformação realizou a conversão do movimento para um valor da superfície de uma esfera (quadrante), por meio de uma função trigonométrica. Assim
 
     \begin{equation*}
@@ -169,7 +178,8 @@
                   \end{cases}
     \end{equation*}
 
-    O resultado de $arctan2(x, y)$ retorna um valor entre $[-\pi, \pi]$. Este valor apresenta o quadrante o qual a visão do usuário está olhando no momento. Portanto, foi possível discretizar o espaço do campo de visão em segmentos, onde o mapeamento da visão possibilita, através dos comandos padrões da câmera IPCam, simular um movimento natural do usuário no dispositivo ligado em rede.\\
+    O resultado de $arctan2(x, y)$ retorna um valor entre $[-\pi, \pi]$. Este valor apresenta o quadrante o qual a visão do usuário está olhando no momento. Portanto, foi possível discretizar o espaço do campo de visão em segmentos, onde o mapeamento da visão possibilita, através dos comandos padrões da câmera IPCam, simular um movimento natural do usuário no dispositivo ligado em rede.
+
     Uma ressalva a se fazer a este método é que o sistema necessita armazenar o valor da última posição para que se possa realizar o cálculo do deslocamento angular da câmera. Com isso, foi possível se rastrear e mapear o campo de visão com o movimento do usuário.
 
   \subsection{Aplicação Cliente} %davi

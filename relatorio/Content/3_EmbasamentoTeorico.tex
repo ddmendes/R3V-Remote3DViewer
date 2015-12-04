@@ -2,7 +2,8 @@
 \label{EmbasamentoTeorico}
 \hspace{0,5cm}
 
-  Na fase de projeto do sistema R3V proposto foram elencados conhecimentos e fundamentos necessários para o desenvolvimento do mesmo. Com isso em mente, pode-se discursar melhor sobre os tópicos mais relevantes do sistema, permitindo que o leitor aprofunde-se devidamente para que, ao final, os objetivos do projeto sejam melhor discutidos e compreendidos.\\
+  Na fase de projeto do sistema R3V proposto foram elencados conhecimentos e fundamentos necessários para o desenvolvimento do mesmo. Com isso em mente, pode-se discursar melhor sobre os tópicos mais relevantes do sistema, permitindo que o leitor aprofunde-se devidamente para que, ao final, os objetivos do projeto sejam melhor discutidos e compreendidos.
+
   Neste capítulo pretende-se analisar os conceitos de estereoscopia, sistemas embarcados, sistemas distribuídos e \emph{dead reckoning}.
 
       % Revisão da literatura dos tópicos  que sustentam a ciência e o conhecimento, relativos aos objetivos e aos métodos escolhidos para o desenvolvimento do trabalho.
@@ -12,8 +13,10 @@
 
   \section{Estereoscopia} % rebs
 
-    A simulação de imagens em três dimensões (visão espacial) é associada ao conceito da estereoscopia. Para isso, o cérebro humano necessita adiquirir duas imagens, cada qual com um leve deslocamento lateral (angular), e com estas calcular a profundidade dos objetos.\\
-    Existem também técnicas de percepção do espaço tri-dimensional que avaliam sombras, sobreposição de objetos numa cena e vários outros parâmetros, possibilitando verificar a disposição dos elementos no espaço.\\
+    A simulação de imagens em três dimensões (visão espacial) é associada ao conceito da estereoscopia. Para isso, o cérebro humano necessita adiquirir duas imagens, cada qual com um leve deslocamento lateral (angular), e com estas calcular a profundidade dos objetos \cite{esteves2011estereoscopia} \cite{momm2001prototipo}.
+
+    Existem também técnicas de percepção do espaço tri-dimensional que avaliam sombras, sobreposição de objetos numa cena e vários outros parâmetros, possibilitando verificar a disposição dos elementos no espaço.
+
     Entretanto, existe uma diferença fundamental entre percepção e simulação do espaço tri-dimensioanl para o usuário, apresentadas a seguir.
 
     \begin{itemize}
@@ -32,15 +35,13 @@
     trabalhar com microcontroladores de 8-bits, qualquer coisa com um sistema
     operacional não parece muito embarcado. Mas ela enuncia a definição: ``um
     sistema embarcado é um sistema computadorizado construído propositadamente
-    para sua aplicação'' \b{citar aqui}.
+    para sua aplicação'' \cite{White:2011:MES:2161614}.
 
     Desta forma podemos realçar a diferença entre sistemas computacionais e
     sistemas embarcados. Enquanto sistemas computacionas são desenvolvidos para
     atuar em computadores de propósito geral, sistemas embarcados são
     desenvolvidos de forma a serem embarcados em \emph{hardware} com propósitos
     específicos, visando a aplicação.
-
-    % WHITE, E. Making Embedded Systems, Design Patterns for Great Software. [s.l.]: O’Reilly Media, 2011.
 
   \section{Sistemas Distribuídos}
 
@@ -49,38 +50,29 @@
     dispositivo com capacidade de processamento, trabalhando em conjunto.
     Vamos tomar por definição: ``Um sistema distribuído é aquele no qual os
     componentes localizados em computadores interligados em rede se comunicam e
-    coordenam suas ações apenas passando mensagens.'' (COULOURIS, 2007, p. 15).
-
-    % COULOURIS, G. et al. Sistemas Distribuídos, Conceitos e Projetos. 4.ed. Porto Alegre: Artmed Editora S.A., 2007.
+    coordenam suas ações apenas passando mensagens.'' \cite{coulouris2007sistemas}.
 
   \section{\emph{WebServices REST}}
-    % @article{dal2009web,
-    %   title={Web services WS-* versus Web Services REST},
-    %   author={Dal Moro, Tharcis and Dorneles, Carina and Rebonatto, Marcelo Trindade},
-    %   journal={Revista de Inicia{\c{c}}{\~a}o Cient{\'\i}fica},
-    %   volume={11},
-    %   number={1},
-    %   year={2009}
-    % }
     Hoje a internet não é mais simplesmente uma ferramenta de difusão de
     informação. Diversos serviços são prestados através dos \emph{Web Services}.
     Normalmente envolvem um processo burocrático rigoroso, como requisições
     SOAP ou outros tipos de mensagem, conforme o protocolo seguido. A idéia de
-    um \emph{WebService REST} é de prover serviços diretamente sobre o
+    um \emph{WebService} REST é de prover serviços diretamente sobre o
     protocolo HTTP, sem a necessidade de adicionar uma camada de protocolo de
-    serviço. Serviços \emph{REST} estão se popularizando cada vez mais, dada a
+    serviço \cite{dal2009web}. Serviços \emph{REST} estão se popularizando cada vez mais, dada a
     baixa complexidade do sistema e fácil integração por parte dos usuários.
 
   \section{\emph{Dead Reckoning}} % rebs
 
-    A tecnologia provê diversos sistemas de posicionamento por sensores, \emph{beacons} (referências fixas no espaço), equivalência entre mapas e outros. Entretanto, pode-se distinguir duas metodologias utilizadas: posicionamento relativo e absoluto.
+    A tecnologia provê diversos sistemas de posicionamento por sensores, \emph{beacons} (referências fixas no espaço), equivalência entre mapas e outros. Entretanto, pode-se distinguir duas metodologias utilizadas: posicionamento relativo e absoluto \cite{borenstein1994umbmark}.
 
     \begin{itemize}
       \item \textbf{Absoluto:} Se vale de técnicas de sensoreamento com referências fixas, previamente implementadas, o que adiciona um custo muito alto para cosntrução e manutenção destes sistemas espalhados pelo terreno em questão.
       \item \textbf{Relativo:} Propõe uma formulação mais elegante, se valendo de sensores e parâmetros intrínsecos da implementação. Com isso, pode-se estimar a posição atual do elemento de acordo com movimentações perceptíveis ao sistema.
     \end{itemize}
 
-    \emph{Dead reckoning} é uma implementação de posicionamento relativo que permite o programador avaliar os diversos sensores para se estimar a localização entre os períodos de tempos avaliados.\\
+    \emph{Dead reckoning} é uma implementação de posicionamento relativo que permite o programador avaliar os diversos sensores para se estimar a localização entre os períodos de tempos avaliados.
+
     Note que as duas implementações de posicionamento possuem suas vantagens e desvantagens, sendo que uma estimativa de localização (posição relativa) adiciona erros às medidas, enquanto que a outra possui as referências extremamente precisas (posição absoluta).
 
 \section{Rotação dos Eixos}

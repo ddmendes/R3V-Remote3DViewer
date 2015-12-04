@@ -1,4 +1,4 @@
-﻿from flask import render_template, request, Response
+from flask import render_template, request, Response
 from SharedPreferences import AnglesStorage
 from app import app
 import requests
@@ -165,8 +165,3 @@ def camstream():
 @app.route('/about/')
 def about():
     return render_template("about.html")
-
-
-
-
-
