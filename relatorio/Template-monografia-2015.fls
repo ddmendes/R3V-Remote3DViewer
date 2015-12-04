@@ -311,12 +311,16 @@ INPUT ./Content/6_Conclusao.tex
 INPUT ./Content/6_Conclusao.tex
 INPUT Template-monografia-2015.bbl
 INPUT Template-monografia-2015.bbl
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/pslatex/pcrr8tn.tfm
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/vf/public/pslatex/pcrr8tn.vf
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/tfm/public/pslatex/pcrr8rn.tfm
 INPUT Template-monografia-2015.aux
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/urw/symbol/usyr.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
 INPUT /usr/local/texlive/2015/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb
