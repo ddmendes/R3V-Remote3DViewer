@@ -11,6 +11,46 @@
      \showURLtrue
 \fi
 
+\bibitem{esteves2011estereoscopia}
+GUSTAVO~RP ESTEVES, MA~FEITOSA, and Bruno Jos{\'e}~Torres Fernandes.
+\newblock Estereoscopia no c{\'a}lculo de dist{\^a}ncia e controle de
+  plataforma rob{\'o}tica.
+\newblock {\em UPE-Universidade de Pernambuco, Pernambuco, RE}, 2011.
+
+\bibitem{momm2001prototipo}
+Edson Momm.
+\newblock Prot{\'o}tipo de um ambiente de visualiza{\c{c}}{\~a}o com
+  t{\'e}cnicas de estereoscopia.
+\newblock {\em Trabalho de conclus{\~a}o de curso de Ci{\^e}ncias da
+  Computa{\c{c}}{\~a}o. Orientador Prof. Dalton Solano dos Reis. Universidade
+  Regional de Blumenau. Blumenau}, 2001.
+
+\bibitem{White:2011:MES:2161614}
+Elecia White.
+\newblock {\em Making Embedded Systems: Design Patterns for Great Software}.
+\newblock O'Reilly Media, Inc., 2011.
+\newblock \showISBN{1449302149, 9781449302146}.
+
+\bibitem{coulouris2007sistemas}
+G.~COULOURIS, J.~DOLLIMORE, and TIM KINDBERG.
+\newblock {\em Sistemas Distribu{\'\i}dos - 4ed: Conceitos e Projeto}.
+\newblock BOOKMAN COMPANHIA ED, 2007.
+\newblock \showISBN{9788560031498}.
+\newblock \ifshowURL {\showURL
+  \path|https://books.google.com.br/books?id=KSZ1rIRWmUoC|}\fi.
+
+\bibitem{dal2009web}
+Tharcis Dal~Moro, Carina Dorneles, and Marcelo~Trindade Rebonatto.
+\newblock Web services ws-* versus web services rest.
+\newblock {\em Revista de Inicia{\c{c}}{\~a}o Cient{\'\i}fica}, 11\penalty0
+  (1), 2009.
+
+\bibitem{borenstein1994umbmark}
+Johann Borenstein and Liqiang Feng.
+\newblock Umbmark: a method for measuring, comparing, and correcting
+  dead-reckoning errors in mobile robots.
+\newblock 1994.
+
 \bibitem{ipcam}
 Shenzhen~Foscam Technology.
 \newblock {\em IP Camera CGI}.
